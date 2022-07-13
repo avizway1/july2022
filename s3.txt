@@ -208,7 +208,59 @@ ____________
 Task : Create an S3 Bucket, Create an SNS topic add a subscriber.. Configure Events on s3 to trigger an email when Object creation and deletion happend.
 
 
-_______________________________________________________________________________________
+_____________________________________________________________________________________________________
+
+D: 13/07/2022
+
+--> In-Transit Encryption : 
+	SSL (Secure socket layer) / TLS (Transport layer secure)
+
+--> SSE (Server Side Encryption) / At-rest : 
+
+SSE-S3 : S3 platform generates and manages the key material. whoever have valid access on S3 platform can decrypt/view the data. (An encryption key that Amazon S3 creates, manages, and uses for you).
+
+SSE-KMS : Key Management Service : 
+	KMS (AWS managed keys) (aws/s3) DMK(Default Master Key) : KMS Service generates and manages the key material. whoever have valid access on S3 platform can decrypt/view the data. We cannot delete these keys. 
+	 CMK (Customer managed keys) : KMS Service generates and manages the keymaterial.
+Along with S3 platform, the IAM user need to have valid permissions on ENCRYPTION KEY also. NO FREE TIER ELIGIBILITY.
+	SSE-C (Customer Provided Key): Customer generates and upload the key material to KMS and KMS uses this key material to encrypt/decrypt the data. CUstomer can change the key material at any time. NO FREE TIER ELIGIBILITY.
+
+--> CSE (Client Side Encryption) : 
+Before uploading data to s3 platform, we can use our own software/applications to encrypt the data. That encryptrd data we can send to s3. AWS is not completely responsible for this mechanism.
+
+Encryption key generation : 
+--> Choose key type : Symmetric /Asymetric
+--> Choose key Administrator
+--> Choose Key Users
+--> Review and create
+
+____________________________________________________________________________
+
+
+Server access logging : enable logging on bucket.
+
+https://docs.aws.amazon.com/AmazonS3/latest/userguide/LogFormat.html
+
+Cloudtrail : Data events : It allow us to log all s3 activities (Current buckets and future buckets).
+____________
+
+
+Event notifications : 
+
+--> SNS : Simple Notification Service : 1000 EMAILs Free Tier eligibility
+--> SQS : Simple Queue Service
+--> Lambda 
+
+--> Make sure you edit the SNS topic's "Access Policy to everyone".
+
+____________
+
+
+Task : Create an S3 Bucket, Create an SNS topic add a subscriber.. Configure Events on s3 to trigger an email when Object creation and deletion happend.
+
+Task 2 : Enable Encryption on s3 bucket and test it. (SSE-S3/AWS Managed key)
+
+_______________________________________________________________________________
 
 
 
