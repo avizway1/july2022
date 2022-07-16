@@ -184,28 +184,6 @@ http status codes :
 
 Task : Download a template from Internet. Deliver the webiste using s3- static webiste feature.
 
-__________
-
-Server access logging : enable logging on bucket.
-
-https://docs.aws.amazon.com/AmazonS3/latest/userguide/LogFormat.html
-
-Cloudtrail : Data events : It allow us to log all s3 activities (Current buckets and future buckets).
-____________
-
-
-Event notifications : 
-
---> SNS : Simple Notification Service : 1000 EMAILs Free Tier eligibility
---> SQS : Simple Queue Service
---> Lambda 
-
---> Make sure you edit the SNS topic's "Access Policy to everyone".
-
-____________
-
-
-Task : Create an S3 Bucket, Create an SNS topic add a subscriber.. Configure Events on s3 to trigger an email when Object creation and deletion happend.
 
 
 _____________________________________________________________________________________________________
@@ -262,11 +240,56 @@ Task 2 : Enable Encryption on s3 bucket and test it. (SSE-S3/AWS Managed key)
 
 _______________________________________________________________________________
 
+Requirement : IAM user has its s3 bucket, he need to get access on his own bucket. : IAM Policy
+https://s3.console.aws.amazon.com/s3/buckets/bucketname
+
+Requirement : IAM User has s3 full access, But i want to limit this user access on "one particular" bucket. 
+
+Deny upload object operation on a particular bucket. : Bucket policy
+
+Bucket ARN : arn:aws:s3:::avinash.bucket
+IAM User ARN / Principal : arn:aws:iam::501170964283:user/s3user
+Effect : Allow / Deny : Deny
+Action / Operation : PutObject, DeleteBucket
+
+
+Object level / Inside bucket possible operation : arn:aws:s3:::avinash.bucket/*
+Bucket level : arn:aws:s3:::avinash.bucket
+
+https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html#example-bucket-policies-use-case-3
+
+___________________
+
+
+Requester pays : the requester pays for requests and data transfer costs, and anonymous access to this bucket is disabled. Instead of bucket owner data requester need to pay for the data transfer & request.
+--> Anonomus access disables once we enable this feature.
+_______
+
+Transfer acceleration : Uses Edge locations for data transfer. (COST US)
+S3 Transfer Acceleration is not supported for buckets with periods (.) in their names
+
+
+https://s3-accelerate-speedtest.s3-accelerate.amazonaws.com/en/accelerate-speed-comparsion.html?region=ap-south-1&origBucketName=avinash2
+
+Object Lock : 
+--> Versioning must be enabled.
+Permanently allows objects in this bucket to be locked. Additional Object Lock configuration is required in bucket details after bucket creation to protect objects in this bucket from being deleted or overwritten.
+
+Governance : Users with specific IAM permissions can overwrite or delete protected object versions during the retention period.
+
+Compliance : No users can overwrite or delete protected object versions during the retention period.
+_____
+
+Performance : 
+3500 PUT Object per second per prefix
+5500 GET Object per second per prefix
+
+Increase the uniqueness for the object names.
+Use more prefixes
 
 
 
 Slack link ; https://join.slack.com/t/awswithavinash/shared_invite/zt-1b5fxkuk1-2P~XGl_50NsrNLgyckamEQ
-
 
 
 
