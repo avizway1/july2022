@@ -197,6 +197,13 @@ cd /var/www/html/
 
 Tool to Move the files to amazon linux ec2 instance : WinSCP
 
+
+d rwx r-x r-x 2 root root 40 Jul 21 04:00 songs
+- u   g   o
+
+chmod 700 songs
+
+
 _______________________________________________________________________________________________
 
 
@@ -326,6 +333,7 @@ Task 2 ; Increase the size of 1gb volume to 2 gb and verify with df -Th
 
 Task 3 ; Launch another ec2 instance in same AZ as existing ec2 instance.. Detach the volume from instance 1 and attach it to newly launched ec2 instance. You should be able to see all the data.
 
+Task 4 : Launch another ec2 instance in another AZ.. Detach the volume from instance 1 and try to attach it to newly launched ec2 instance (another AZ). take a ss and create a volume and attach to new instance, make it available.
 ________________________________________________________________
 
 
