@@ -431,36 +431,9 @@ Task 2 : Perform some more customisations on the task 1 instance and make it as 
 Task 3 : Launch Linux ec2 instance, Make it as webserver.. Add custom webpage.. Create a Golden AMI and Launch instance from GAMI and test output. 
 
 
-
-
-
-
-
-
-
-_____________
-
-Whenever we launch an ec2 instance, 2 status checks will happen. 
--> System Status check : H/w is healtlhy or not at Physical resource level. (STOP/START)
--> Instane status check : OS level issues.
-
-Virtulisations : 
-
-Host Based Hypervisor
-Bare metal Hypervisor 
-
-______________
-
-Tenancy in AWS : 
---> Shared Tenancy : Underlying hardware/resources will be shared with multiple AWS customers. 
---> Dedicated Tenancy : Underlying hardware/resources will dedicatedly available to only one AWS customer. It won't share with any other.
-	--> Dedicated Instance : 
-	--> Dedicated Host : Host supports to launch multiple instances. Some applications required physical resources inforamtion to apply the licenses. 
-	
-
-
 ________________________________________________________________________________________________
 
+D: 27/07/2022
 
 EIP : Elastic IP Address : Dedicated IP address we will get from AWS. We can associate this to an ec2 instance. When Instance is STOP/START, this IP won't change.
 (COST US : NO FREE TIER ELIGIBILITY, EVEN if you generated kept it idle)
@@ -487,6 +460,33 @@ http://localhost/ or http://127.0.0.1/
 --> Security group won't support DENY. It allow the traffic. 
 --> Security groups are stateful. We need to take care about INBOUND RULES only. 
 --> All the Outbound traffic is allowed for every security groups. 
+
+___________________________________________________________________________________________
+
+
+
+
+
+_____________
+
+Whenever we launch an ec2 instance, 2 status checks will happen. 
+-> System Status check : H/w is healtlhy or not at Physical resource level. (STOP/START)
+-> Instane status check : OS level issues.
+
+Virtulisations : 
+
+Host Based Hypervisor
+Bare metal Hypervisor 
+
+______________
+
+Tenancy in AWS : 
+--> Shared Tenancy : Underlying hardware/resources will be shared with multiple AWS customers. 
+--> Dedicated Tenancy : Underlying hardware/resources will dedicatedly available to only one AWS customer. It won't share with any other.
+	--> Dedicated Instance : 
+	--> Dedicated Host : Host supports to launch multiple instances. Some applications required physical resources inforamtion to apply the licenses. 
+	
+
 
 ___________________________________________________________________________________________
 
