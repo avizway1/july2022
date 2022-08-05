@@ -753,7 +753,6 @@ sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,ret
 sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport fs-07ad0386b14ce4aac.efs.ap-south-1.amazonaws.com:/ /var/www/html/
 
 Task : Create EFS and Mount it to multiple ec2 instances. Deliver Web Content to both the instances from EFS.
-
 _______________________________________________________________________________________
 
 Platform : Windows/Linux
@@ -781,6 +780,8 @@ ElasticBeanstalk : It provides preconfigured platforms.
 --> Less customisations at OS level, We cannot deliver multiple applications. 
 
 _______________________________________________________________________________________
+
+D: 04/08/2022
 
 AWS CLI : 
 
@@ -836,6 +837,8 @@ yum install httpd -y
 service httpd start
 chkconfig httpd on
 copy data from s3 to ec2 (/var/www/html)
+
+Task 3 : Try Switch Role option.
 
 ____________________________________________________________________________________________________
 
