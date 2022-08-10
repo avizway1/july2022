@@ -85,12 +85,12 @@ CIDR : Classless InterDomain Routing :
 Public Subnet : Internet facing subnet.. :
 Private Subnet : Non-Internet facing subnet.. : 
 
-How big VPC we required.?				Ans : /24 (256 = 256-5 = 251 Usable IPs) (192.168.0.0/24)
+How big VPC we required.?				Ans : /20 (4096 = 4096-5 = 4091 Usable IPs) (192.168.0.0/20)
 How many subnets we required within the VPC..?		Ans : 2
-How many public SUbnets required within vpc..?		Ans : 1 (192.168.0.0/26)
-How many private SUbnets required within vpc.?		Ans : 1 (192.168.0.64/26)
+How many public SUbnets required within vpc..?		Ans : 1 (192.168.0.0/22)
+How many private SUbnets required within vpc.?		Ans : 1 (192.168.4.0/22)
 Are you going to create any subnets in future.?		Ans : Yes (Have some IPs for future use).
-													(192.168.0.128/26, 192.168.0.192/26)
+													(192.168.8.0/22, 192.168.12.0/22)
 
 
 SUbnet : ap-south-1a : subnet1 & Subnet 2
@@ -99,12 +99,12 @@ Public Subnet : Internet facing.. : ELB, Jump/ Bastian Host..
 Private Subnet : DBs, Application, Web servers.. 
 
 Step 1 : Create a VPC.
-	VPC Name : CustomVPC		VPC CIDR : 192.168.0.0/24
+	VPC Name : CustomVPC		VPC CIDR : 192.168.0.0/20
 
 Step 2 : Create Subnets within CustomVPC. 
 
-Name : Public Subnet : ap-south-1a : 192.168.0.0/26
-Name : Private SUbnet : ap-south-1b : 192.168.0.64/26
+Name : Public Subnet : ap-south-1a : 192.168.0.0/22
+Name : Private SUbnet : ap-south-1b : 192.168.4.0/22
 
 Step 3 : Create an Internet Gateway and associate with CustomVPC.
 --> One VPC can contains one IGW.
@@ -168,6 +168,39 @@ Flow Logs: We can enable flowlogs at
 --> Instance Level
 
 We can choose destination as 1. S3 bucket 2. Cloudwatch Logs groups.
+
+_________________
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents",
+                "logs:DescribeLogGroups",
+                "logs:DescribeLogStreams"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+_______________
+trust Relationship:
+________________
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "vpc-flow-logs.amazonaws.com"
+            },
+            "Action": "sts:AssumeRole"
+        }
+    ]
+}
 
 _____________
 
