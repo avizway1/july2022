@@ -92,6 +92,9 @@ Task 1 : Launch an Mysql RDS db instance in CUstomVPCs Private SUbnet. Launch an
 
 Task 2 : Restore the shared sample db to the rds instance. 
 
+Task 3 ; Create an Addl user with "Admin" user similar permisisons using sql commands.
+https://aws.amazon.com/premiumsupport/knowledge-center/duplicate-master-user-mysql/
+
 _________________________________________________________________________________________
 
 
