@@ -95,6 +95,10 @@ Task 2 : Restore the shared sample db to the rds instance.
 Task 3 ; Create an Addl user with "Admin" user similar permisisons using sql commands.
 https://aws.amazon.com/premiumsupport/knowledge-center/duplicate-master-user-mysql/
 
+Task 4 : Connect to Mysql using ODBC connector.
+
+Task 5 : Use "Standard TCP/IP over SSH" option to get connect to your CustomVPC private subnet rds instance.
+
 _________________________________________________________________________________________
 
 
@@ -140,7 +144,7 @@ Restore to point in time : You are creating a new DB instance from a source DB i
 
 ___
 
-Task 1 : Create environment as mentioned in "VPC1.png"
+Task 1 : Create environment as mentioned in "VPC1.png".
 
 Task 2 ; Restore the Shared sample db to Launch mysql rds cluster.
 
@@ -149,8 +153,8 @@ Task 2 : https://aws.amazon.com/getting-started/hands-on/amazon-efs-backup-and-r
 Task 3 : https://aws.amazon.com/getting-started/hands-on/amazon-ebs-backup-and-restore-using-aws-backup/?trk=gs_card
 
 
+Task 4 : Connect to Mysql using ODBC connector.
 ____________________________________________________________________________________
-
 
 
 Aurora DB : No Free tier eligibility
