@@ -152,7 +152,6 @@ Task 2 : https://aws.amazon.com/getting-started/hands-on/amazon-efs-backup-and-r
 
 Task 3 : https://aws.amazon.com/getting-started/hands-on/amazon-ebs-backup-and-restore-using-aws-backup/?trk=gs_card
 
-
 Task 4 : Connect to Mysql using ODBC connector.
 ____________________________________________________________________________________
 
@@ -226,6 +225,21 @@ Task 5 : https://aws.amazon.com/getting-started/hands-on/migrate-rdsmysql-to-aur
 
 
 
+
+{
+  "studentid": {
+    "N": "102"
+  },
+  "contact": {
+    "N": "567"
+  },
+  "firstname": {
+    "S": "aravind"
+  },
+  "lastname": {
+    "S": "reddy"
+  }
+}
 
 
 
